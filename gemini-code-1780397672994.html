@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economia e Agronegócio juntos para construir um futuro sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="painel-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
+        <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro e escuro">🌓 Tema</button>
+        <button onclick="mudarFonte(1)" aria-label="Aumentar tamanho do texto">A+</button>
+        <button onclick="mudarFonte(-1)" aria-label="Diminuir tamanho do texto">A-</button>
+        <button id="btn-voz" onclick="gerenciarLeitura()" aria-label="Ouvir texto da página">🔊 Ouvir Texto</button>
+    </div>
+
+    <main class="wrapper">
+        
+        <header class="topo-pagina">
+            <h1>Economia e Agronegócio juntos para construir um futuro sustentável</h1>
+        </header>
+
+        <section class="secao-introducao">
+            <div class="coluna-texto" id="texto-principal">
+                <h2>O Motor da Economia Nacional</h2>
+                <p>O agronegócio consolidou-se como a principal viga de sustentação da economia brasileira, respondendo por quase 25% do Produto Interno Bruto (PIB) do país. Além de abastecer o mercado interno, o setor lidera as exportações globais de diversas commodities, gerando superávits comerciais consecutivos e impulsionando o desenvolvimento de centenas de municípios no interior do Brasil.</p>
+                <p>Para o futuro, a estimativa é que o impacto do agro seja ainda mais estratégico. Diante das projeções da ONU de que a população mundial ultrapassará 9 bilhões de pessoas nas próximas décadas, o Brasil desponta como o principal player capaz de expandir a oferta global de alimentos. Essa expansão futura não dependerá do desmatamento, mas sim do ganho severo de produtividade por hectare através da tecnologia aplicada.</p>
+            </div>
+            
+            <div class="coluna-imagem">
+                <svg viewBox="0 0 500 400" class="ilustracao-agro" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração representando tecnologia agrícola e preservação da natureza">
+                    <rect width="100%" height="100%" fill="var(--bg-card)" rx="12"/>
+                    <circle cx="380" cy="120" r="45" fill="#e8f5e9" opacity="0.6"/>
+                    <circle cx="380" cy="120" r="30" fill="#a5d6a7"/>
+                    <path d="M 50 340 L 450 340" stroke="var(--cor-texto)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M 90 340 L 40 390 M 170 340 L 130 390 M 250 340 L 250 390 M 330 340 L 370 390 M 410 340 L 460 390" stroke="var(--cor-texto)" stroke-width="2" opacity="0.4"/>
+                    <path d="M 250 340 L 250 230" stroke="#795548" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 250 260 Q 180 230 200 180 Q 250 210 250 260 Z" fill="#2e7d32"/>
+                    <path d="M 250 240 Q 320 210 300 160 Q 250 190 250 240 Z" fill="#4caf50"/>
+                    <path d="M 250 230 C 220 180, 280 180, 250 230 Z" fill="#81c784"/>
+                    <path d="M 360 110 Q 380 90 390 110 Q 370 130 360 110 Z" fill="#2e7d32"/>
+                    <text x="250" y="60" font-family="serif" font-size="20" fill="var(--cor-texto)" font-weight="bold" text-anchor="middle">Eco-Eficiência</text>
+                </svg>
+            </div>
+        </section>
+
+        <div class="separador-visual"></div>
+
+        <section class="secao-dados" id="texto-dados">
+            <h2>Indicadores de Sustentabilidade no Campo</h2>
+            <p>O agronegócio brasileiro já opera sob uma das legislações ambientais mais rígidas do mundo (o Código Florestal). No entanto, o potencial para elevar essa sustentabilidade a níveis ainda maiores reside na adoção em massa da Agricultura de Baixo Carbono (Plano ABC+), na recuperação de pastagens degradadas e na expansão de sistemas de Integração Lavoura-Pecuária-Floresta (ILPF).</p>
+            
+            <div class="grid-estatisticas">
+                <div class="card-estatistica" onclick="destacarCard(this)">
+                    <span class="numero-destaque">+60%</span>
+                    <p>Do território brasileiro é mantido sob vegetação nativa preservada, com forte contribuição das reservas legais rurais.</p>
+                </div>
+                <div class="card-estatistica" onclick="destacarCard(this)">
+                    <span class="numero-destaque">50Mi</span>
+                    <p>De hectares serão cultivados utilizando técnicas de plantio direto e bioinsumos até o final desta década.</p>
+                </div>
+                <div class="card-estatistica" onclick="destacarCard(this)">
+                    <span class="numero-destaque">-20%</span>
+                    <p>Na emissão de gases de efeito estufa estimada através do uso de rotação de culturas e manejo de resíduos.</p>
+                </div>
+            </div>
+
+            <div class="container-link">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-saiba-mais">
+                    Explorar Ferramentas de Sustentabilidade e o Papel do Agro no Campo &rarr;
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape-pagina">
+        <p>Créditos: Texto elaborado com base em indicadores macroeconômicos do PIB. Ilustrações e vetores gerados via código SVG nativo.</p>
+        <p>&copy; 2026 - Repositório AgroSustentável no GitHub.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
