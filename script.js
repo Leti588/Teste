@@ -1,4 +1,4 @@
-// Controle de Tamanho de Fonte
+// Controle Adaptativo de Acessibilidade Textual
 let fontBase = 16;
 function mudarFonte(n) {
     fontBase += n * 2;
@@ -7,21 +7,31 @@ function mudarFonte(n) {
     document.documentElement.style.setProperty('--tamanho-base', fontBase + 'px');
 }
 
-// Alternar Tema
+// Inversor de Cores de Lado Oposto (Light/Dark)
 function alternarTema() {
     document.body.classList.toggle('modo-escuro');
 }
 
-// Acordeão do FAQ
-document.querySelectorAll('.faq-pergunta').forEach(botao => {
+// Controle do Acordeão de FAQ Luxo (Abre/Fecha)
+document.querySelectorAll('.faq-lux-pergunta').forEach(botao => {
     botao.addEventListener('click', () => {
-        const item = botao.parentElement;
-        item.classList.toggle('ativo');
-        botao.querySelector('span').innerText = item.classList.contains('ativo') ? '-' : '+';
+        const itemAtual = botao.parentElement;
+        const resposta = botao.nextElementSibling;
+        
+        // Alterna o item clicado
+        itemAtual.classList.toggle('ativo');
+        
+        if (itemAtual.classList.contains('ativo')) {
+            resposta.style.maxHeight = resposta.scrollHeight + "px";
+            botao.setAttribute('aria-expanded', 'true');
+        } else {
+            resposta.style.maxHeight = "0";
+            botao.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 
-// Leitura por Voz (Acessibilidade)
+// Mecanismo de Áudio Nativo por Síntese Vocal
 let synth = window.speechSynthesis;
 let lendo = false;
 
@@ -31,14 +41,22 @@ function gerenciarLeitura() {
         lendo = false;
         document.getElementById('btn-voz').innerText = "🔊 Ouvir Texto";
     } else {
-        // Seleciona as IDs dos textos informativos
-        const textos = ['texto-intro', 'texto-dados', 'texto-timeline', 'texto-faq'];
-        let conteudo = "";
-        textos.forEach(id => conteudo += document.getElementById(id).innerText + " ");
+        const IDsDosBlocos = ['texto-intro', 'texto-dados', 'texto-timeline', 'texto-faq'];
+        let stringDeLeitura = "";
+        
+        IDsDosBlocos.forEach(id => {
+            const elemento = document.getElementById(id);
+            if (elemento) stringDeLeitura += elemento.innerText + " ";
+        });
 
-        let fala = new SpeechSynthesisUtterance(conteudo);
+        let fala = new SpeechSynthesisUtterance(stringDeLeitura);
         fala.lang = 'pt-BR';
-        fala.onend = () => { lendo = false; document.getElementById('btn-voz').innerText = "🔊 Ouvir Texto"; };
+        fala.rate = 1.05;
+
+        fala.onend = () => {
+            lendo = false;
+            document.getElementById('btn-voz').innerText = "🔊 Ouvir Texto";
+        };
         
         synth.speak(fala);
         lendo = true;
