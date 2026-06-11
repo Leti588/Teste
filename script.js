@@ -1,67 +1,47 @@
-// Estado de controle global para fontes e áudio
-let tamanhoFonteBase = 16;
-let sintentizadorVoz = window.speechSynthesis;
-let objetoFala = null;
-let lendoAgora = false;
+// Controle de Tamanho de Fonte
+let fontBase = 16;
+function mudarFonte(n) {
+    fontBase += n * 2;
+    if (fontBase < 12) fontBase = 12;
+    if (fontBase > 26) fontBase = 26;
+    document.documentElement.style.setProperty('--tamanho-base', fontBase + 'px');
+}
 
-// 1. Função para alterar o Modo de Cor (Claro / Escuro)
+// Alternar Tema
 function alternarTema() {
     document.body.classList.toggle('modo-escuro');
 }
 
-// 2. Função para alterar o tamanho da fonte proporcionalmente
-function mudarFonte(direcao) {
-    tamanhoFonteBase += direcao * 2;
-    // Limitadores para evitar que o layout quebre
-    if (tamanhoFonteBase < 12) tamanhoFonteBase = 12;
-    if (tamanhoFonteBase > 26) tamanhoFonteBase = 26;
-    
-    document.documentElement.style.setProperty('--tamanho-base', tamanhoFonteBase + 'px');
-}
-
-// 3. Função de Leitura Assistiva de Texto por Voz
-function gerenciarLeitura() {
-    const botaoVoz = document.getElementById('btn-voz');
-    
-    if (!sintentizadorVoz) {
-        alert("O seu navegador não possui suporte para leitura de voz nativa.");
-        return;
-    }
-
-    if (lendoAgora) {
-        sintentizadorVoz.cancel();
-        lendoAgora = false;
-        botaoVoz.innerText = "🔊 Ouvir Texto";
-    } else {
-        // Captura o conteúdo textual dos blocos informativos da página
-        const textoPrincipal = document.getElementById('texto-principal').innerText;
-        const textoDados = document.getElementById('texto-dados').innerText;
-        const textoCompleto = textoPrincipal + " " + textoDados;
-
-        objetoFala = new SpeechSynthesisUtterance(textoCompleto);
-        objetoFala.lang = 'pt-BR';
-        objetoFala.rate = 1.05; // Velocidade confortável de audição
-
-        objetoFala.onend = function() {
-            lendoAgora = false;
-            botaoVoz.innerText = "🔊 Ouvir Texto";
-        };
-
-        objetoFala.onerror = function() {
-            lendoAgora = false;
-            botaoVoz.innerText = "🔊 Ouvir Texto";
-        };
-
-        sintentizadorVoz.speak(objetoFala);
-        lendoAgora = true;
-        botaoVoz.innerText = "🛑 Parar Leitura";
-    }
-}
-
-// 4. Elemento Interativo: Destaque de Cards ao clicar
-function destacarCard(elemento) {
-    document.querySelectorAll('.card-estatistica').forEach(card => {
-        card.classList.remove('ativo');
+// Acordeão do FAQ
+document.querySelectorAll('.faq-pergunta').forEach(botao => {
+    botao.addEventListener('click', () => {
+        const item = botao.parentElement;
+        item.classList.toggle('ativo');
+        botao.querySelector('span').innerText = item.classList.contains('ativo') ? '-' : '+';
     });
-    elemento.classList.add('ativo');
+});
+
+// Leitura por Voz (Acessibilidade)
+let synth = window.speechSynthesis;
+let lendo = false;
+
+function gerenciarLeitura() {
+    if (lendo) {
+        synth.cancel();
+        lendo = false;
+        document.getElementById('btn-voz').innerText = "🔊 Ouvir Texto";
+    } else {
+        // Seleciona as IDs dos textos informativos
+        const textos = ['texto-intro', 'texto-dados', 'texto-timeline', 'texto-faq'];
+        let conteudo = "";
+        textos.forEach(id => conteudo += document.getElementById(id).innerText + " ");
+
+        let fala = new SpeechSynthesisUtterance(conteudo);
+        fala.lang = 'pt-BR';
+        fala.onend = () => { lendo = false; document.getElementById('btn-voz').innerText = "🔊 Ouvir Texto"; };
+        
+        synth.speak(fala);
+        lendo = true;
+        document.getElementById('btn-voz').innerText = "🛑 Parar Leitura";
+    }
 }
