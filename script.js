@@ -58,7 +58,7 @@ function gerenciarLeitura() {
     }
 }
 
-// 4. Elemento Interativo Extra: Destaque de Cards ao clicar
+// 4. Elemento Interativo: Destaque de Cards ao clicar
 function destacarCard(elemento) {
     document.querySelectorAll('.card-estatistica').forEach(card => {
         card.classList.remove('ativo');
