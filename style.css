@@ -192,27 +192,6 @@ body {
     text-align: center;
 }
 
-/* Links e Direcionamentos */
-.container-link {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.link-saiba-mais {
-    display: inline-block;
-    color: var(--btn-texto);
-    background-color: var(--btn-fundo);
-    border: 2px solid var(--cor-acento);
-    padding: 12px 24px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-}
-
-.link-saiba-mais:hover {
-    opacity: 0.9;
-}
-
 /* Rodapé */
 .rodape-pagina {
     text-align: center;
@@ -250,5 +229,4 @@ body {
     }
     .topo-pagina h1 { font-size: 1.6rem; }
     .coluna-imagem { width: 100%; }
-    .link-saiba-mais { width: 100%; text-align: center; }
 }
