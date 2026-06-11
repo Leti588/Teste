@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Economia e Agronegócio juntos para construir um futuro sustentável</title>
+    <title>Economia e Agronegócio: Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="painel-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro e escuro">🌓 Tema</button>
-        <button onclick="mudarFonte(1)" aria-label="Aumentar tamanho do texto">A+</button>
-        <button onclick="mudarFonte(-1)" aria-label="Diminuir tamanho do texto">A-</button>
-        <button id="btn-voz" onclick="gerenciarLeitura()" aria-label="Ouvir texto da página">🔊 Ouvir Texto</button>
+    <div class="painel-acessibilidade" role="complementary" aria-label="Acessibilidade">
+        <button id="btn-tema" onclick="alternarTema()" aria-label="Mudar Cores">🌓 Tema</button>
+        <button onclick="mudarFonte(1)" aria-label="Aumentar Texto">A+</button>
+        <button onclick="mudarFonte(-1)" aria-label="Diminuir Texto">A-</button>
+        <button id="btn-voz" onclick="gerenciarLeitura()" aria-label="Ouvir Página">🔊 Ouvir Texto</button>
     </div>
 
     <main class="wrapper">
@@ -22,47 +22,91 @@
         </header>
 
         <section class="secao-introducao">
-            <div class="coluna-texto" id="texto-principal">
+            <div class="coluna-texto" id="texto-intro">
                 <h2>O Motor da Economia Nacional</h2>
-                <p>O agronegócio consolidou-se como a principal viga de sustentação da economia brasileira, respondendo por quase 25% do Produto Interno Bruto (PIB) do país. Além de abastecer o mercado interno, o setor lidera as exportações globais de diversas commodities, gerando superávits comerciais consecutivos e impulsionando o desenvolvimento de centenas de municípios no interior do Brasil.</p>
-                <p>Para o futuro, a estimativa é que o impacto do agro seja ainda mais estratégico. Diante das projeções da ONU de que a população mundial ultrapassará 9 bilhões de pessoas nas próximas décadas, o Brasil desponta como o principal player capaz de expandir a oferta global de alimentos. Essa expansão futura não dependerá do desmatamento, mas sim do ganho severo de produtividade por hectare através da tecnologia aplicada.</p>
+                <p>O agronegócio consolidou-se como a principal viga de sustentação da economia brasileira, respondendo por quase 25% do Produto Interno Bruto (PIB) do país. Além de abastecer o mercado interno, o setor lidera as exportações globais, impulsionando o desenvolvimento social e econômico de centenas de municípios.</p>
+                <p>Para o futuro, o Brasil desponta como o principal player capaz de expandir a oferta global de alimentos sem a necessidade de desmatamento, utilizando o ganho severo de produtividade por hectare através da tecnologia de precisão.</p>
             </div>
             
             <div class="coluna-imagem">
-                <svg viewBox="0 0 500 400" class="ilustracao-agro" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração representando tecnologia agrícola e preservação da natureza">
+                <svg viewBox="0 0 500 400" class="ilustracao-agro" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100%" height="100%" fill="var(--bg-card)" rx="12"/>
-                    <circle cx="380" cy="120" r="45" fill="#e8f5e9" opacity="0.6"/>
-                    <circle cx="380" cy="120" r="30" fill="#a5d6a7"/>
-                    <path d="M 50 340 L 450 340" stroke="var(--cor-texto)" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M 90 340 L 40 390 M 170 340 L 130 390 M 250 340 L 250 390 M 330 340 L 370 390 M 410 340 L 460 390" stroke="var(--cor-texto)" stroke-width="2" opacity="0.4"/>
-                    <path d="M 250 340 L 250 230" stroke="#795548" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M 250 260 Q 180 230 200 180 Q 250 210 250 260 Z" fill="#2e7d32"/>
-                    <path d="M 250 240 Q 320 210 300 160 Q 250 190 250 240 Z" fill="#4caf50"/>
-                    <path d="M 250 230 C 220 180, 280 180, 250 230 Z" fill="#81c784"/>
-                    <path d="M 360 110 Q 380 90 390 110 Q 370 130 360 110 Z" fill="#2e7d32"/>
-                    <text x="250" y="60" font-family="serif" font-size="20" fill="var(--cor-texto)" font-weight="bold" text-anchor="middle">Eco-Eficiência</text>
+                    <path d="M 50 340 L 450 340" stroke="var(--cor-acento)" stroke-width="2"/>
+                    <path d="M 250 340 L 250 200" stroke="#795548" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 250 240 Q 180 210 200 160 Q 250 190 250 240 Z" fill="#2e7d32"/>
+                    <path d="M 250 220 Q 320 190 300 140 Q 250 170 250 220 Z" fill="#4caf50"/>
+                    <circle cx="380" cy="100" r="30" fill="#fff176" opacity="0.6"/>
                 </svg>
             </div>
         </section>
 
-        <div class="separador-visual"></div>
-
         <section class="secao-dados" id="texto-dados">
-            <h2>Indicadores de Sustentabilidade no Campo</h2>
-            <p>O agronegócio brasileiro já opera sob uma das legislações ambientais mais rígidas do mundo (o Código Florestal). No entanto, o potencial para elevar essa sustentabilidade a níveis ainda maiores reside na adoção em massa da Agricultura de Baixo Carbono (Plano ABC+), na recuperação de pastagens degradadas e na expansão de sistemas de Integração Lavoura-Pecuária-Floresta (ILPF).</p>
-            
             <div class="grid-estatisticas">
-                <div class="card-estatistica" onclick="destacarCard(this)">
+                <div class="card-estatistica">
                     <span class="numero-destaque">+60%</span>
-                    <p>Do território brasileiro é mantido sob vegetação nativa preservada, com forte contribuição das reservas legais rurais.</p>
+                    <p>Do território nacional preservado com vegetação nativa.</p>
                 </div>
-                <div class="card-estatistica" onclick="destacarCard(this)">
+                <div class="card-estatistica">
                     <span class="numero-destaque">50Mi</span>
-                    <p>De hectares serão cultivados utilizando técnicas de plantio direto e bioinsumos até o final desta década.</p>
+                    <p>Hectares com técnicas de baixo carbono até 2030.</p>
                 </div>
-                <div class="card-estatistica" onclick="destacarCard(this)">
-                    <span class="numero-destaque">-20%</span>
-                    <p>Na emissão de gases de efeito estufa estimada através do uso de rotação de culturas e manejo de resíduos.</p>
+            </div>
+        </section>
+
+        <section class="secao-timeline" id="texto-timeline">
+            <h2 class="titulo-secao">Marcos da Evolução Sustentável</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1973</div>
+                    <div class="timeline-content">
+                        <h3>Fundação da Embrapa</h3>
+                        <p>Início da modernização tecnológica e do desenvolvimento da agricultura tropical brasileira.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Anos 90</div>
+                    <div class="timeline-content">
+                        <h3>Plantio Direto</h3>
+                        <p>Adoção em massa da técnica que preserva a umidade do solo e evita a erosão.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2010</div>
+                    <div class="timeline-content">
+                        <h3>Plano ABC</h3>
+                        <p>O Brasil assume o compromisso de consolidar uma agricultura de baixa emissão de carbono.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Hoje</div>
+                    <div class="timeline-content">
+                        <h3>Agro 5.0</h3>
+                        <p>Uso de IA, Drones e Big Data para rastreabilidade total e eficiência máxima de insumos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-faq" id="texto-faq">
+            <h2 class="titulo-secao">Dúvidas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-pergunta">Como o agro ajuda a combater as mudanças climáticas? <span>+</span></button>
+                    <div class="faq-resposta">
+                        <p>Através de técnicas como a Integração Lavoura-Pecuária-Floresta (ILPF) e o plantio direto, que sequestram carbono no solo e reduzem a necessidade de novos desmatamentos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-pergunta">O que é a tecnologia de precisão? <span>+</span></button>
+                    <div class="faq-resposta">
+                        <p>É o uso de sensores e GPS para aplicar água e fertilizantes apenas onde a planta realmente precisa, reduzindo desperdícios em até 30%.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-pergunta">O Brasil produz e preserva ao mesmo tempo? <span>+</span></button>
+                    <div class="faq-resposta">
+                        <p>Sim. O Código Florestal obriga que todo produtor rural preserve áreas de vegetação nativa dentro de suas terras, tornando o fazendeiro brasileiro um dos maiores guardiões da biodiversidade.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,7 +114,7 @@
     </main>
 
     <footer class="rodape-pagina">
-        <p>Créditos: Texto elaborado com base em indicadores macroeconômicos do PIB. Ilustrações e vetores gerados via código SVG nativo.</p>
+        <p>Créditos: Texto baseado em indicadores macroeconômicos e dados da Embrapa. Imagem em SVG nativo.</p>
         <p>&copy; 2026 - Repositório AgroSustentável no GitHub.</p>
     </footer>
 
